@@ -1,0 +1,159 @@
+:root {
+	--primary-color: #af3c42;
+	--secondary-color: #3c3a3a;
+	--background-color: #f7f1f1;
+	--on-background-color: #121212;
+	--error-color: #ff3e00;
+	--on-error-color: #f7f1f1;
+	--surface-color: #dddddd;
+	--surface-a50: #8b8b8b;
+	--on-surface-color: #3f3f3f;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--primary-color: #af3c42;
+		--secondary-color: #3c3a3a;
+		--background-color: #121212;
+		--on-background-color: #f7f1f1;
+		--error-color: #ff3e00;
+		--on-error-color: #f7f1f1;
+		--surface-color: #3f3f3f;
+		--on-surface-color: #dddddd;
+	}
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+html {
+	overflow: scroll;
+	overflow-x: hidden;
+}
+::-webkit-scrollbar {
+	width: 0; /* Remove scrollbar space */
+	background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+	background: var(--primary-color);
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	min-height: 100dvh;
+	font-family: 'Open Sans Variable', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 300;
+	font-style: normal;
+	font-variation-settings: 'wdth' 100;
+	background: var(--background-color);
+	color: var(--on-background-color);
+	overflow: scroll;
+	-ms-overflow-style: none;
+	/* IE and Edge */
+	scrollbar-width: none;
+	/* Firefox */
+}
+
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: #eee;
+	clip: auto !important;
+	clip-path: none;
+	color: #444;
+	display: block;
+	font-size: 1em;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+.urbanist-bold {
+	font-family: 'Urbanist Variable', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	font-style: normal;
+}
+
+.open-sans-regular {
+	font-family: 'Open Sans Variable', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	font-variation-settings: 'wdth' 100;
+}
+
+.lobster-regular {
+	font-family: 'Lobster', system-ui;
+	font-weight: 400;
+	font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Urbanist Variable', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 700;
+}
+
+code {
+	font-family: 'Fira Code Variable', monospace;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+a {
+	text-decoration: none;
+	color: var(--on-surface-color);
+}
+
+li::marker {
+	color: var(--primary-color);
+}
+
+@media screen and (max-width: 600px) {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		line-height: 1.8rem;
+		margin: 0.6rem 0;
+	}
+	p {
+		line-height: 1.4rem;
+	}
+}
