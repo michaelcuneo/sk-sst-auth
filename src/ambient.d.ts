@@ -35,3 +35,7 @@ type AppSyncEvent = {
 		userId: string;
 	};
 };
+
+type Theme = {
+	value: 'system' | 'light' | 'dark';
+};

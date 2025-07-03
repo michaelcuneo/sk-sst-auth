@@ -1,26 +1,55 @@
-:root {
-	--primary-color: #af3c42;
-	--secondary-color: #3c3a3a;
-	--background-color: #f7f1f1;
-	--on-background-color: #121212;
-	--error-color: #ff3e00;
-	--on-error-color: #f7f1f1;
-	--surface-color: #dddddd;
-	--surface-a50: #8b8b8b;
-	--on-surface-color: #3f3f3f;
+:root[data-theme='light'] {
+	--bg-primary: #fff;
+	--bg-secondary: #e8e8e8;
+	--bg-tertiary: #f3f3f3;
+	--bg-scrim: #0d0d0d80;
+	--bg-elevated-primary: #fff;
+	--bg-elevated-secondary: #f9f9f9;
+	--bg-status-warning: #fff5f0;
+	--bg-status-error: #fff0f0;
+	--border-default: #0d0d0d1a;
+	--border-heavy: #0d0d0d26;
+	--border-light: #0d0d0d0d;
+	--border-status-warning: #ffe7d9;
+	--border-status-error: #ffe1e0;
+	--text-primary: #0d0d0d;
+	--text-secondary: #5d5d5d;
+	/* 💠 Neumorphism Shadows */
+	--box-shadow-inactive: 8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.7);
+	--box-shadow-active:
+		inset 4px 4px 8px rgba(0, 0, 0, 0.15), inset -4px -4px 8px rgba(255, 255, 255, 0.6);
+	--box-shadow-inactive-subtle:
+		2px 2px 4px rgba(0, 0, 0, 0.04), -2px -2px 4px rgba(255, 255, 255, 0.6);
+
+	--box-shadow-active-subtle:
+		inset 2px 2px 4px rgba(0, 0, 0, 0.08), inset -2px -2px 4px rgba(255, 255, 255, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--primary-color: #af3c42;
-		--secondary-color: #3c3a3a;
-		--background-color: #121212;
-		--on-background-color: #f7f1f1;
-		--error-color: #ff3e00;
-		--on-error-color: #f7f1f1;
-		--surface-color: #3f3f3f;
-		--on-surface-color: #dddddd;
-	}
+:root[data-theme='dark'] {
+	--bg-primary: #212121;
+	--bg-secondary: #303030;
+	--bg-tertiary: #414141;
+	--bg-scrim: #0d0d0d80;
+	--bg-elevated-primary: #303030;
+	--bg-elevated-secondary: #181818;
+	--bg-status-warning: #4a2206;
+	--bg-status-error: #4d100e;
+	--border-default: #ffffff26;
+	--border-heavy: #fff3;
+	--border-light: #ffffff0d;
+	--border-status-warning: #4a2206;
+	--border-status-error: #4d100e;
+	--text-primary: #fff;
+	--text-secondary: #f3f3f3;
+	/* Add shadows for dark mode too */
+	--box-shadow-inactive: 8px 8px 16px rgba(0, 0, 0, 0.4), -8px -8px 16px rgba(255, 255, 255, 0.05);
+	--box-shadow-active:
+		inset 4px 4px 8px rgba(0, 0, 0, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+	--box-shadow-inactive-subtle:
+		2px 2px 4px rgba(0, 0, 0, 0.5), -2px -2px 4px rgba(255, 255, 255, 0.02);
+
+	--box-shadow-active-subtle:
+		inset 2px 2px 4px rgba(0, 0, 0, 0.7), inset -2px -2px 4px rgba(255, 255, 255, 0.03);
 }
 
 *,
@@ -37,13 +66,17 @@ html {
 	overflow: scroll;
 	overflow-x: hidden;
 }
+
 ::-webkit-scrollbar {
-	width: 0; /* Remove scrollbar space */
-	background: transparent; /* Optional: just make scrollbar invisible */
+	width: 0;
+	/* Remove scrollbar space */
+	background: transparent;
+	/* Optional: just make scrollbar invisible */
 }
+
 /* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
-	background: var(--primary-color);
+	background: var(--bg-primary);
 }
 
 body {
@@ -56,8 +89,8 @@ body {
 	font-weight: 300;
 	font-style: normal;
 	font-variation-settings: 'wdth' 100;
-	background: var(--background-color);
-	color: var(--on-background-color);
+	background: var(--bg-primary);
+	color: var(--text-primary);
 	overflow: scroll;
 	-ms-overflow-style: none;
 	/* IE and Edge */
@@ -136,14 +169,15 @@ code {
 
 a {
 	text-decoration: none;
-	color: var(--on-surface-color);
+	color: var(--secondary-color);
 }
 
 li::marker {
-	color: var(--primary-color);
+	color: var(--secondary-color);
 }
 
 @media screen and (max-width: 600px) {
+
 	h1,
 	h2,
 	h3,
@@ -153,7 +187,59 @@ li::marker {
 		line-height: 1.8rem;
 		margin: 0.6rem 0;
 	}
+
 	p {
 		line-height: 1.4rem;
 	}
+}
+
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	/* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	font-feature-settings: 'liga';
+}
+
+.material-symbols-outlined {
+	font-family: 'Material Symbols Outlined';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	/* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+}
+
+input[type='number'] {
+	-webkit-appearance: none;
+	-moz-appearance: textfield;
+	appearance: none;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type='number'] {
+	-moz-appearance: textfield;
+	appearance: textfield;
 }

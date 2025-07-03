@@ -16,19 +16,24 @@
 	</p>
 	<h3>How do I set this up locally on my own machine, with my own federated identities?</h3>
 	<p>See the setup page here... <a href="/setup"><code class="blue">SETUP</code></a></p>
+	<h3>Changelog</h3>
+	<ul>
+		<li>Updated to SvelteKit 5+, with SSTv3 and OpenAuth</li>
+		<li>Session Management</li>
+	</ul>
 	<h3>Current Features</h3>
 	<ul>
-		<li>Authentication with Google, Facebook, GitHub, and Magic Links.</li>
-		<li>Default Licence, Terms of Service, Privacy and Data Deletion policies.</li>
+		<li>Authentication with Google, Facebook, GitHub, and Magic Links</li>
+		<li>Default Licence, Terms of Service, Privacy and Data Deletion policies</li>
 		<li>Dark Mode / Light Mode</li>
 	</ul>
 	<h3>Future Features</h3>
 	<ul>
-		<li>Automatic Data Deletion with a simple DELETE ACCOUNT button.</li>
-		<li>A better protected route with demonstration of authenticated API calls.</li>
+		<li>Automatic Data Deletion with a simple DELETE ACCOUNT button</li>
+		<li>A better protected route with demonstration of authenticated API calls</li>
 		<li>
 			Command-Line scripted on-boarding & bootstrap, so that you don't have to cut out each auth
-			method that you don't need.
+			method that you don't need
 		</li>
 		<li>
 			Dark/Light switch <i>Low Priority, it is getting a bit outdated?</i>
@@ -39,7 +44,6 @@
 	</ul>
 	<h3>TODO:</h3>
 	<ul>
-		<li>Better Session Management</li>
 		<li>Fix the bad theme</li>
 		<li>Better setup instructions, including all of the FB/Google/GitHub App Config</li>
 		<li>Use accordion for the Setup Page Steps</li>

@@ -37,12 +37,12 @@
 	}
 	.licence {
 		width: auto;
-		background: var(--surface-color);
+		background: var(--bg-elevated-primary);
 		padding: 1rem;
 		border-radius: 10px;
 	}
 	a {
-		color: var(--primary-color);
+		color: var(--text-color);
 	}
 	@media screen and (max-width: 1200px) {
 		.wrapper {

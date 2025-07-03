@@ -55,6 +55,10 @@
 			Thank you for entrusting us with your personal data, and we are committed to protecting your
 			privacy rights.
 		</p>
+		<!-- Delete all of my personal data button -->
+		<p>
+			<a href="/auth/delete-account" class="blue">Delete all of my personal data</a>
+		</p>
 	</div>
 </div>
 
@@ -66,11 +70,10 @@
 		padding: 3rem 0 3rem 0;
 	}
 	a {
-		color: var(--primary-color);
 	}
 	.licence {
 		width: auto;
-		background: var(--surface-color);
+		background: var(--bg-elevated-primary);
 		padding: 1rem;
 		border-radius: 10px;
 	}

@@ -4,7 +4,15 @@ import { CodeUI } from '@openauthjs/openauth/ui/code';
 import { CodeProvider } from '@openauthjs/openauth/provider/code';
 import { MemoryStorage } from '@openauthjs/openauth/storage/memory';
 import { subjects } from './subjects';
-import { THEME_SST } from '@openauthjs/openauth/ui/theme';
+
+import type { Theme } from '@openauthjs/openauth/ui/theme';
+
+const MY_THEME: Theme = {
+	primary: "#4A90E2",
+	title: "SK-SST-AUTH",
+	radius: "none",
+	favicon: "https://www.example.com/favicon.svg",
+};
 
 async function getUser(email: string) {
 	// Get user from database and return user ID
@@ -13,7 +21,7 @@ async function getUser(email: string) {
 }
 
 const app = issuer({
-	theme: THEME_SST,
+	theme: MY_THEME,
 	subjects,
 	storage: MemoryStorage(),
 	// Remove after setting custom domain

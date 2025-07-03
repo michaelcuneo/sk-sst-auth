@@ -17,6 +17,7 @@
 		display: flex;
 		font-size: 1rem;
 		padding: 1.25rem;
+		background: var(--bg-elevated-tertiary);
 		width: 100%;
 		max-width: 95vw;
 		border-radius: 0.5rem;

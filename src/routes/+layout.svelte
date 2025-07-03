@@ -3,6 +3,7 @@
 	import '@fontsource-variable/fira-code';
 	import '@fontsource-variable/urbanist';
 	import '@fontsource-variable/open-sans';
+	import '@fontsource/material-icons';
 
 	import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
@@ -12,13 +13,14 @@
 	import 'sanitize.css/forms.css';
 	import 'sanitize.css/typography.css';
 	import './style.css';
+	import type { Snippet } from 'svelte';
 
-	export let data: PageData;
+	let { children, data }: { children: Snippet; data: PageData } = $props();
 </script>
 
 <div class="wrapper">
 	<Header {data} />
-	<slot />
+	{@render children?.()}
 	<Footer />
 </div>
 

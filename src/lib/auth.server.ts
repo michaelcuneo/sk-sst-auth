@@ -8,7 +8,7 @@ export function createAuthClient(event: RequestEvent) {
 		issuer: Resource.MyAuth.url,
 		fetch: event.fetch
 	});
-}
+};
 
 export function setTokens(event: RequestEvent, access: string, refresh: string) {
 	event.cookies.set('refresh_token', refresh, {
@@ -23,4 +23,17 @@ export function setTokens(event: RequestEvent, access: string, refresh: string) 
 		path: '/',
 		maxAge: 34560000
 	});
-}
+};
+
+export function clearTokens(event: RequestEvent) {
+	event.cookies.delete('refresh_token', {
+		httpOnly: true,
+		sameSite: 'lax',
+		path: '/'
+	});
+	event.cookies.delete('access_token', {
+		httpOnly: true,
+		sameSite: 'lax',
+		path: '/'
+	});
+};

@@ -1,5 +1,5 @@
 <footer class="urbanist-bold">
-	Developed by Michael Cuneo, 2024 | v1.0.0 |
+	Developed by Michael Cuneo, 2024 | v1.2.1 |
 	<a class="urbanist-bold" href="/licence">&nbsp;LICENCE |</a>
 	<a class="urbanist-bold" href="/tos">&nbsp;TOS |</a>
 	<a class="urbanist-bold" href="/privacy">&nbsp;PRIVACY |</a>
@@ -12,14 +12,14 @@
 		width: 100%;
 		margin-top: auto;
 		flex-direction: row;
-		background: var(--surface-a50);
+		background: var(--bg-tertiary);
 		font-size: 0.8rem;
 		padding: 1rem;
-		color: black;
+		color: var(--text-primary);
 	}
 	a {
 		font-size: 0.8rem;
-		color: black;
+		color: var(--text-secondary);
 	}
 	@media screen and (max-width: 1200px) {
 		footer {

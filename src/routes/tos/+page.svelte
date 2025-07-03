@@ -67,11 +67,11 @@
 	.licence {
 		width: auto;
 		padding: 1rem;
-		background: var(--surface-color);
+		background: var(--bg-elevated-primary);
 		border-radius: 10px;
 	}
 	a {
-		color: var(--primary-color);
+		color: var(--text-secondary);
 	}
 	@media screen and (max-width: 1200px) {
 		.wrapper {

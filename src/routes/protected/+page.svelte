@@ -1,6 +1,13 @@
+<script lang="ts">
+	import type { PageData } from './$types';
+	let { data }: { data: PageData } = $props();
+</script>
+
 <div class="wrapper">
-	<h4>THIS IS A PROTECTED LINK</h4>
-	<p>You are logged in.</p>
+	<div class="protected">
+		<h4>THIS IS A PROTECTED LINK</h4>
+		<p>You are logged in as {data.session.id}</p>
+	</div>
 </div>
 
 <style>
@@ -9,6 +16,12 @@
 		flex-direction: column;
 		max-width: 65rem;
 		padding: 3rem 0 3rem 0;
+	}
+	.protected {
+		width: auto;
+		padding: 1rem;
+		background: var(--bg-elevated-primary);
+		border-radius: 10px;
 	}
 	h4 {
 		line-height: 0.4rem;

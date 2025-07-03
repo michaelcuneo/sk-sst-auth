@@ -1,5 +1,5 @@
 <div class="wrapper">
-	<div class="licence">
+	<div class="privacy">
 		<h2>Privacy Policy for SvelteKit SST Auth</h2>
 		<p>Effective Date: 18/03/2024</p>
 		<p>
@@ -77,14 +77,14 @@
 		max-width: 65rem;
 		padding: 3rem 0 3rem 0;
 	}
-	.licence {
+	.privacy {
 		width: auto;
-		background: var(--surface-color);
 		padding: 1rem;
+		background: var(--bg-elevated-primary);
 		border-radius: 10px;
 	}
 	a {
-		color: var(--primary-color);
+		color: var(--text-color);
 	}
 	@media screen and (max-width: 1200px) {
 		.wrapper {

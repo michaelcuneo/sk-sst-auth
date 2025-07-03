@@ -1,26 +1,21 @@
 <script lang="ts">
-	import IconButton from '@smui/icon-button';
-	import { enhance } from '$app/forms';
 	import type { PageData } from './$types';
 	import Github from '$lib/images/github-mark-white.svg';
 	import Slack from '$lib/images/slack_icon_2019.svg';
+	import ToggleLightDark from '$lib/components/ToggleLightDark.svelte';
 
 	const handleNav = () => {
 		navOpen = !navOpen;
 	};
 
-	function handleNavWithKey(e: KeyboardEvent) {
+	const handleNavWithKey = (e: KeyboardEvent) => {
 		if (e.code === 'KeyE') {
 			navOpen = !navOpen;
 		}
-	}
-
-	const login = async () => {
-		const { url } = await client.authorize(event.url.origin + '/auth/callback', 'code');
 	};
 
-	let navOpen: boolean = false;
-	export let data: PageData;
+	let navOpen: boolean = $state(false);
+	let { data }: { data: PageData } = $props();
 </script>
 
 <svelte:window on:keydown={handleNavWithKey} />
@@ -34,12 +29,9 @@
 		{#if !data.authenticated}
 			<a class="urbanist-bold" href="/auth/login">LOGIN</a>
 		{:else}
-			<form action="/auth/logout" method="POST" use:enhance>
-				<IconButton size="mini" class="material-icons" style="color: var(--primary-color)">
-					logout</IconButton
-				>
-			</form>
+			<a class="urbanist-bold" href="/auth/logout">LOGOUT</a>
 		{/if}
+		<ToggleLightDark />
 		<a class="urbanist-bold" href="https://github.com/michaelcuneo/sveltekit-auth"
 			><img src={Github} alt={Github} /></a
 		>
@@ -50,7 +42,12 @@
 		>
 	</div>
 	<div class="mobilemenu">
-		<button class="container" class:change={navOpen} on:click={handleNav}>
+		<button
+			class="container"
+			aria-label="Toggle navigation"
+			class:change={navOpen}
+			onclick={handleNav}
+		>
 			<div class="bar1"></div>
 			<div class="bar2"></div>
 			<div class="bar3"></div>
@@ -59,35 +56,31 @@
 </header>
 
 <div role="navigation" id="sidenav" class="sidenav" class:open={navOpen}>
-	<a class="closebtn urbanist-bold" href="#a" on:click={handleNav}>&times;</a>
-	<a class="urbanist-bold" href="/" on:click={handleNav}>HOME</a>
-	<a class="urbanist-bold" href="/setup" on:click={handleNav}>SETUP</a>
-	<a class="urbanist-bold" href="/protected" on:click={handleNav}>PROTECTED</a>
+	<a class="closebtn urbanist-bold" href="#a" onclick={handleNav}>&times;</a>
+	<a class="urbanist-bold" href="/" onclick={handleNav}>HOME</a>
+	<a class="urbanist-bold" href="/setup" onclick={handleNav}>SETUP</a>
+	<a class="urbanist-bold" href="/protected" onclick={handleNav}>PROTECTED</a>
 	{#if !data.authenticated}
-		<a class="urbanist-bold" href="/auth/login" on:click={handleNav}>LOGIN</a>
+		<a class="urbanist-bold" href="/auth/login" onclick={handleNav}>LOGIN</a>
 	{:else}
-		<form action="/auth/logout" method="POST" use:enhance>
-			<a class="urbanist-bold" href="#"
-				><button class="urbanist-bold" on:click={handleNav}>LOGOUT</button></a
-			>
-		</form>
+		<a class="urbanist-bold" href="/auth/logout" onclick={handleNav}>LOGOUT</a>
 	{/if}
 	<footer role="doc-credits" class="urbanist-bold">
 		<p>Developed by Michael Cuneo, 2024 | v1.0.0</p>
 		<p class="row">
-			<a href="https://github.com/michaelcuneo/sveltekit-auth" on:click={handleNav}
+			<a href="https://github.com/michaelcuneo/sveltekit-auth" onclick={handleNav}
 				><img src={Github} alt={Github} /></a
 			>
 			<a
 				href="https://join.slack.com/t/michaelcuneo/shared_invite/zt-2ewl9vs81-QWUZBWzHqkGiaN4XpqLXjg"
-				on:click={handleNav}><img src={Slack} alt={Slack} /></a
+				onclick={handleNav}><img src={Slack} alt={Slack} /></a
 			>
 		</p>
 		<p class="row">
-			<a class="foot" href="/licence" on:click={handleNav}>LICENCE</a>
-			<a class="foot" href="/tos" on:click={handleNav}>TOS</a>
-			<a class="foot" href="/privacy" on:click={handleNav}>PRIVACY</a>
-			<a class="foot" href="/deletion" on:click={handleNav}>DATA DELETION</a>
+			<a class="foot" href="/licence" onclick={handleNav}>LICENCE</a>
+			<a class="foot" href="/tos" onclick={handleNav}>TOS</a>
+			<a class="foot" href="/privacy" onclick={handleNav}>PRIVACY</a>
+			<a class="foot" href="/deletion" onclick={handleNav}>DATA DELETION</a>
 		</p>
 	</footer>
 </div>
@@ -96,7 +89,7 @@
 	header {
 		display: flex;
 		align-items: center;
-		background: var(--surface-color);
+		background: var(--bg-secondary);
 		padding: 1rem;
 		width: 100%;
 		height: 60px;
